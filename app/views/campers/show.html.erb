@@ -5,7 +5,7 @@
     <h3>Activities: </h3>
     <ul>
         <% @camper.camp_activities.each do |camp_activity|  %>
-            <li><%= camp_activity.activity.name  %> at <%= camp_activity.time %> hrs </li>
+            <li><%= link_to camp_activity.activity.name, activity_path(camp_activity.activity)  %> at <%= camp_activity.pretty_time %> </li>
         <% end %>
     </ul>
 <% else %>
