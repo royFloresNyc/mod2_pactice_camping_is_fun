@@ -4,12 +4,12 @@
 <% if @camper.activities.count > 0 %>
     <h3>Activities: </h3>
     <ul>
-        <% @camper.camp_activities.each do |camp_activity|  %>
-            <li><%= link_to camp_activity.activity.name, activity_path(camp_activity.activity)  %> at <%= camp_activity.pretty_time %> </li>
+        <% @camper.sign_up.each do |sign_up|  %>
+            <li><%= link_to sign_up.activity.name, activity_path(sign_up.activity)  %> at <%= sign_up.pretty_time %> </li>
         <% end %>
     </ul>
 <% else %>
     <h3>No upcoming activities</h3>
 <% end %>
 
-<%= link_to "Sign Up for an Activity", new_camp_activity_path %>
+<%= link_to "Sign Up for an Activity", new_sign_up_path %>
