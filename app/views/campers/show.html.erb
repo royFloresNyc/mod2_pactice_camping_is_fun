@@ -1,8 +1,15 @@
 <h1><%= @camper.name %></h1>
 <h3>Age: <%= @camper.age %></h3>
-<h3>Activities: </h3>
-<ul>
-    <%# @camper.activities.each do |activitity|  %>
-        <li><%# activity.name  %></li>
-    <%# end %>
-</ul>
+
+<% if @camper.activities.count > 0 %>
+    <h3>Activities: </h3>
+    <ul>
+        <% @camper.camp_activities.each do |camp_activity|  %>
+            <li><%= camp_activity.activity.name  %> at <%= camp_activity.time %> hrs </li>
+        <% end %>
+    </ul>
+<% else %>
+    <h3>No upcoming activities</h3>
+<% end %>
+
+<%= link_to "Sign Up for an Activity", new_camp_activity_path %>
